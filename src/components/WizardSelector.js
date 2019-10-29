@@ -10,8 +10,19 @@ const WizardSelector = ({ data }) => {
     )
   })
 
+
+  const wizardOptions = data.map((wizard, index) => {
+    const {name} = wizard;
+    return (
+      <option value={name}>{name}</option>
+    )
+  })
+
+
+
   return (
     <div className="wizard-selector">
+    <select>{wizardOptions}</select>
     {wizardNodes}
     </div>
   )

@@ -10,6 +10,8 @@ class MagicBox extends Component {
     };
   }
 
+
+
   componentDidMount(){
     fetch(`http://hp-api.herokuapp.com/api/characters`)
       .then(result => result.json())
