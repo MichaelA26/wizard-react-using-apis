@@ -4,9 +4,9 @@ import WizardCard from "./WizardCard.js";
 const WizardSelector = ({ data }) => {
 
   const wizardNodes = data.map(wizard => {
-    const {name, house, image} = wizard;
+    const {name, house, image, id} = wizard;
     return (
-      <WizardCard name={name} house={house} image={image}/>
+      <WizardCard name={name} house={house} image={image} key={id}/>
     )
   })
 
