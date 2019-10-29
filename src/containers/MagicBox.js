@@ -6,32 +6,26 @@ class MagicBox extends Component {
   constructor(props){
     super(props);
     this.state = {
-      data: [
-        {
-          "id": 1,
-          "name": "Lord Voldemort",
-          "house": "Slytherin",
-          "image": "http://hp-api.herokuapp.com/images/voldemort.jpg"
-        },
-        {
-          "id": 2,
-          "name": "Horace Slughorn",
-          "house": "Slytherin",
-          "image": "http://hp-api.herokuapp.com/images/slughorn.JPG"
-        }
-      ]
+      data: []
     };
   }
 
-  render() {
-    return (
-      <div className="magic-box">
-      <h2>WIZARD SELECTOR YO</h2>
-      <WizardSelector data={this.state.data}/>
-      </div>
-    )
+  componentDidMount(){
+    fetch(`http://hp-api.herokuapp.com/api/characters`)
+      .then(result => result.json())
+      .then(resultfun => this.setState({data: resultfun}))
+    }
+
+
+    render() {
+      return (
+        <div className="magic-box">
+        <h2>Lord Voldemort's Barmy Army</h2>
+        <WizardSelector data={this.state.data}/>
+        </div>
+      )
+    }
+
   }
 
-}
-
-export default MagicBox;
+  export default MagicBox;

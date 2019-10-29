@@ -3,10 +3,10 @@ import WizardCard from "./WizardCard.js";
 
 const WizardSelector = ({ data }) => {
 
-  const wizardNodes = data.map(wizard => {
-    const {name, house, image, id} = wizard;
+  const wizardNodes = data.map((wizard, index) => {
+    const {name, house, image} = wizard;
     return (
-      <WizardCard name={name} house={house} image={image} key={id}/>
+      <WizardCard name={name} house={house} image={image} key={index}/>
     )
   })
 
